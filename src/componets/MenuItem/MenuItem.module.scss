@@ -1,0 +1,22 @@
+.wrapper {
+    width: 100%;
+    padding: 9px 10px;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: #ffffff1a;
+        cursor: pointer;
+    }
+
+}
+
+.icon {
+    font-size: 1.6rem;
+    color: #ffffff80;
+}
+
+.title {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-left: 10px;
+}

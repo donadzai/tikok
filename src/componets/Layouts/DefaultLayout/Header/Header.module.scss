@@ -1,0 +1,52 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 30px;
+    background-color: var(--background-color);
+}
+
+.img {
+    height: 40px;
+    width: 120px;
+}
+
+
+
+
+
+// actions
+.action {
+    display: flex;
+    align-items: center;
+}
+
+.img-download {
+    width: 20px;
+    height: 20px;
+    color: #c273ed;
+    margin-right: 10px;
+}
+
+.setting {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #362944;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+
+
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    background-size:cover ;
+    border-radius: 50%;
+    cursor: pointer;
+}
