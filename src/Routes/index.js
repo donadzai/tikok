@@ -3,10 +3,10 @@ import { HeaderOnly } from "../Components/Layouts"
 
 
 //pages
-import Home from "../Pages/Home"
-import Following from "../Pages/Following"
-import Upload from "../Pages/Upload"
-import Search from "../Pages/Search"
+import Home from "../pages/Home"
+import Following from "../pages/Following"
+import Upload from "../pages/Upload"
+import Search from "../pages/Search"
 
 
 
