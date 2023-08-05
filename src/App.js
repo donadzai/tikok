@@ -5,6 +5,7 @@ import { publicRoutes } from './Routes';
 import { DefaultLayout} from './Components/Layouts';
 
 function App() {
+    
     return (
         <BrowserRouter>
             <div className="App">
