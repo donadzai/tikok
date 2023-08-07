@@ -2,6 +2,13 @@
 
 @import 'normalize.css';
 
+:root {
+    --primary-color: rgba(254, 44, 85, 1);
+    --text-color: rgba(22, 24, 35, 1);
+    --black-color: #000;
+    --white-color: #fff;
+}
+
 * {
     box-sizing: inherit;
     padding: 0;
@@ -15,4 +22,9 @@ html {
     font-size: 62.5%;
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
+}
+
+button, input {
+    border: none;
+    outline: none;
 }

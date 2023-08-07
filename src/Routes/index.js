@@ -1,5 +1,5 @@
 //Layouts
-import { HeaderOnly } from "../Components/Layouts"
+import { HeaderOnly } from "../components/layouts"
 
 
 //pages
