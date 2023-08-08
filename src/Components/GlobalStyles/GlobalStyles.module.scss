@@ -30,6 +30,11 @@ input {
     outline: none;
 }
 
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
 html ::-webkit-scrollbar {
     border-radius: 0px;
     width: 8px;
