@@ -87,3 +87,28 @@
     font-size: 2rem;
     color: rgba(22, 24, 35, 0.34);
 }
+
+//search-result
+.search-result {
+    width: 500px;
+}
+
+.heading {
+    position:absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 30px;
+    padding-left: 12px;
+    font-size: 1.4rem;
+    line-height: 3rem;
+    letter-spacing: 0.093px;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
+    border-bottom: 1px solid rgba(22, 24, 35, 0.34);
+}
+
+.result-title {
+    margin-top: 30px;
+    overflow-y: scroll;
+}

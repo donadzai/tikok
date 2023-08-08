@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Fragment } from 'react';
 
 import { publicRoutes } from './Routes';
-import { DefaultLayout} from './components/layouts';
+import { DefaultLayout} from './components/Layouts';
 
 function App() {
     
