@@ -1,15 +1,46 @@
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faSpinner, faCircleXmark, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+    faMagnifyingGlass,
+    faSpinner,
+    faCircleXmark,
+    faPlus,
+    faEllipsisVertical,
+    faEarthAsia,
+    faCircleQuestion,
+    faKeyboard,
+    faMoon,
+} from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
 import images from '../../../../assets/images';
 import { Wrapper as PopperWrap } from '../../../Popper';
 import AccountItem from '../../../AccountItem';
 import Button from '../../../Button';
+import Menu from '../../../Popper/Menu';
 
 const cx = classNames.bind(styles);
+
+const menuItem = [
+    {
+        title: 'English',
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    },
+    {
+        title: 'Phản hổi và trợ giúp',
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        to: '/feedback'
+    },
+    {
+        title: 'Phím tắt trên bàn phím',
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+    },
+    {
+        title: 'Chế độ tối',
+        icon: <FontAwesomeIcon icon={faMoon} />,
+    },
+]
 
 function Header() {
     return (
@@ -46,8 +77,16 @@ function Header() {
                 </Tippy>
 
                 <div className={cx('action')}>
-                    <Button outline leftIcon = {<FontAwesomeIcon icon={faPlus} />}>Tải lên</Button>
+                    <Button outline leftIcon = {<FontAwesomeIcon icon={faPlus} />}>
+                        Tải lên
+                    </Button>
                     <Button primary>Đăng nhập</Button>
+
+                    <Menu data = {menuItem}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
