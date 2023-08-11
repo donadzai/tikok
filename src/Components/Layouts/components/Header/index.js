@@ -26,11 +26,24 @@ const menuItem = [
     {
         title: 'English',
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        children: {
+            title: 'Languages',
+            data: [
+                {
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'Tiếng Anh',
+                },
+            ],
+        },
     },
     {
         title: 'Phản hổi và trợ giúp',
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-        to: '/feedback'
+        to: '/feedback',
     },
     {
         title: 'Phím tắt trên bàn phím',
@@ -39,8 +52,9 @@ const menuItem = [
     {
         title: 'Chế độ tối',
         icon: <FontAwesomeIcon icon={faMoon} />,
+        toggle_switch: true,
     },
-]
+];
 
 function Header() {
     return (
@@ -77,12 +91,12 @@ function Header() {
                 </Tippy>
 
                 <div className={cx('action')}>
-                    <Button outline leftIcon = {<FontAwesomeIcon icon={faPlus} />}>
+                    <Button outline leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                         Tải lên
                     </Button>
                     <Button primary>Đăng nhập</Button>
 
-                    <Menu data = {menuItem}>
+                    <Menu data={menuItem}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
