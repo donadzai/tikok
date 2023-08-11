@@ -7,9 +7,13 @@ import Button from '../../Button';
 const cx = classNames.bind(styles);
 
 function MenuItem({ data, onClick }) {
+    const classes = cx('menu-item', {
+        separate: data.border_top,
+    })
+
     return (
         <>
-            <Button className={cx('menu-item')} to={data.to} leftIcon={data.icon} onClick={onClick}>
+            <Button className={classes} to={data.to} leftIcon={data.icon} onClick={onClick}>
                 {data.title}
                 {data.toggle_switch && <input className={cx('toggle-switch')} type="checkbox" />}
             </Button>

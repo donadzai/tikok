@@ -20,8 +20,10 @@ function Button({
     leftIcon,
     rightIcon,
     onClick,
+    separate,
     ...passProps
 }) {
+    console.log(separate);
     let Comp = 'button';
     const props = {
         onClick,
@@ -55,6 +57,7 @@ function Button({
         rounded,
         small,
         large,
+        separate,
     });
 
     return (

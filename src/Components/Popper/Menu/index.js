@@ -15,6 +15,7 @@ function Menu({ children, data }) {
     const current = history[history.length - 1];
     return (
         <Tippy
+        visible
             appendTo={() => document.body}
             placement="bottom-end"
             interactive

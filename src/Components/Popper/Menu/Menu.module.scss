@@ -60,6 +60,12 @@
     left: 22px;
 }
 
+.separate {
+    border-top: 1px solid #ccc;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
 //Menu header
 .menu-header {
     position: relative;
