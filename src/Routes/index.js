@@ -1,23 +1,9 @@
-<<<<<<< HEAD
-//Layouts
-import { HeaderOnly } from "../components/Layouts"
+import Following from "../Pages/Following";
+import Home from "../Pages/Home";
+import Search from "../Pages/Search";
+import Upload from "../Pages/Upload";
 
-
-//pages
-import Home from "../Pages/Home"
-import Following from "../Pages/Following"
-import Upload from "../Pages/Upload"
-import Search from "../Pages/Search"
-
-
-=======
-import Following from "../pages/Following";
-import Home from "../pages/Home";
-import Search from "../pages/Search";
-import Upload from "../pages/Upload";
-
-import { HeaderOnly } from "../components/layouts";
->>>>>>> alpha
+import { HeaderOnly } from "../Components/Layouts";
 
 const publicRoutes = [
     {
@@ -29,25 +15,10 @@ const publicRoutes = [
         component: Following,
     },
     {
-<<<<<<< HEAD
-        path: '/search',
-        component: Search,
-        layout: null,
-    },
-    {
-=======
->>>>>>> alpha
         path: '/upload',
         component: Upload,
         layout: HeaderOnly,
     },
-<<<<<<< HEAD
-]
-
-const praviteRoutes = []
-
-export {publicRoutes, praviteRoutes}
-=======
     {
         path: '/search',
         component: Search,
@@ -58,4 +29,3 @@ export {publicRoutes, praviteRoutes}
 const privateRoutes = []
 
 export {publicRoutes, privateRoutes};
->>>>>>> alpha
