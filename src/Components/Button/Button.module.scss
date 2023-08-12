@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 100px;
+    min-width: 96px;
     padding: 9px 16px;
     border-radius: 4px;
     font-size: 1.6rem;
@@ -12,85 +12,47 @@
     border: 1px solid transparent;
     user-select: none;
 
-    + .wrapper {
-        margin-left: 8px;
-    }
-
-    &.disabled {
-        pointer-events: none;
-        opacity: 0.5;
+    & + .wrapper {
+        margin-left: 16px;
     }
 }
 
-.icon + .title,
-.title + .icon {
-    margin-left: 8px;
-}
-
-.icon {
-    width: 16px;
-}
-
-// Button types
-.rounded {
-    border-radius: 999px;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-    border-color: rgba(22, 24, 35, 0.12);
-
-    &:hover {
-        border-color: rgba(22, 24, 35, 0.2);
-        background-color: rgba(22, 24, 35, 0.03);
-    }
-}
-
+//type btn
 .primary {
-    color: #fff;
     background-color: var(--primary-color);
-    padding: 9px 7px;
+    padding: 7px 8px;
 
     &:hover {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
     }
-}
 
-.primary .title {
-    font-weight: 700;
+    .title {
+        color: rgba(255, 255, 255, 1);
+        font-weight: 700;
+        line-height: 2rem;
+    }
 }
 
 .outline {
+    padding: 5px 15px;
     border-color: rgba(22, 24, 35, 0.12);
-    padding: 9px 20px;
+    border-radius: 0;
 
     &:hover {
-        background-color: rgba(22, 24, 35, .03)
+        background-color: rgba(22, 24, 35, .03);
+    }
+
+    .title {
+        font-weight: 600;
+        line-height: 2.4rem;
     }
 }
 
-.color {
-    min-width: 96px;
+.outlinePrimary {
     border-color: var(--primary-color);
-    color: var(--primary-color);
-}
-
-.text {
-    &:hover {
-        text-decoration: underline;
+    border-radius: 0px;
+    
+    .title {
+        color: var(--primary-color);
     }
-}
-
-// Disabled
-
-// Button sizes
-.small {
-    min-width: 88px;
-    padding: 4px 16px;
-}
-
-.large {
-    padding: 14px 16px;
-    min-width: 140px;
-}
-
-.separate {
-    border-top: 1px solid #ccc;
 }

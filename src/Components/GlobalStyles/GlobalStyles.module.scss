@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 @import 'normalize.css';
 
 :root {
-    --primary-color: rgba(254, 44, 85, 1);
-    --text-color: rgba(22, 24, 35, 1);
-    --black-color: #000;
-    --white-color: #fff;
+    --text-color: rgb(22, 24, 35);
+    --primary-color:rgb(254, 44, 85);
 }
 
 * {
@@ -19,15 +16,18 @@
 }
 
 html {
+    box-sizing: border-box;
     font-size: 62.5%;
     font-family: 'Montserrat', sans-serif;
-    box-sizing: border-box;
 }
 
-button,
-input {
-    border: none;
+button,input {
     outline: none;
+    border: none;
+}
+
+button {
+    background-color: transparent;
 }
 
 a {

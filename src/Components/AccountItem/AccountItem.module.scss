@@ -1,7 +1,8 @@
 .wrapper {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    padding: 9px 16px;
+    padding: 9px 10px;
 
     &:hover {
         cursor: pointer;
@@ -18,20 +19,34 @@
 
 .info {
     flex: 1;
-    margin-left: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.user-name-wrap {
+    display: flex;
+    align-items: center;
 }
 
 .user-name {
-    font-size: 1.6rem;
     line-height: 2.1rem;
     letter-spacing: 0.03px;
     font-weight: 600;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.nick-name {
+.user-nickname {
     font-size: 1.4rem;
     line-height: 1.8rem;
     letter-spacing: 0.093px;
     color: rgba(22, 24, 35, 0.5);
     font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

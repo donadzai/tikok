@@ -1,30 +1,32 @@
-import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faMagnifyingGlass,
-    faSpinner,
-    faCircleXmark,
-    faPlus,
-    faEllipsisVertical,
-    faEarthAsia,
-    faCircleQuestion,
-    faKeyboard,
-    faMoon,
-    faBitcoinSign,
-    faChartLine,
-    faVideo,
-    faHouse,
-    faGear,
-    faArrowRightFromBracket,
-} from '@fortawesome/free-solid-svg-icons';
-import { faBookmark, faMessage, faPaperPlane, faUser } from '@fortawesome/free-regular-svg-icons';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import { Fragment } from 'react';
 
+import styles from './Header.module.scss';
 import images from '../../../../assets/images';
+import {
+    Add,
+    Clean,
+    Search,
+    MoreMenu,
+    Language,
+    Feedback,
+    Keyboard,
+    Moon,
+    Message,
+    Notication,
+    Profile,
+    Favorite,
+    Coin,
+    Analysis,
+    Camera,
+    Home,
+    Setting,
+    Logout,
+} from '../../../Icons';
 import { Wrapper as PopperWrap } from '../../../Popper';
 import AccountItem from '../../../AccountItem';
 import Button from '../../../Button';
@@ -32,156 +34,142 @@ import Menu from '../../../Popper/Menu';
 
 const cx = classNames.bind(styles);
 
-const userLogin = true;
+const login = true;
 
-const menuItem = [
+const menuItems = [
     {
-        title: 'English',
-        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'Tiếng Việt',
+        icon: <Language className={cx('icon')} />,
         children: {
             title: 'Languages',
             data: [
                 {
-                    code: 'vn',
                     title: 'Tiếng Việt',
                 },
                 {
-                    code: 'en',
                     title: 'Tiếng Anh',
                 },
             ],
         },
     },
     {
-        title: 'Phản hổi và trợ giúp',
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-        to: '/feedback',
+        title: 'Phản hồi và trợ giúp',
+        icon: <Feedback className={cx('icon')} />,
     },
     {
         title: 'Phím tắt trên bàn phím',
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        icon: <Keyboard className={cx('icon')} />,
     },
     {
         title: 'Chế độ tối',
-        icon: <FontAwesomeIcon icon={faMoon} />,
-        toggle_switch: true,
+        icon: <Moon className={cx('icon')} />,
+        toggle: true,
     },
 ];
 
-const menuUser = [
+const userLogin = [
     {
         title: 'Xem hồ sơ',
-        icon: <FontAwesomeIcon icon={faUser} />,
-        to: '/chickenxz@21',
+        icon: <Profile className={cx('icon')} />,
     },
     {
         title: 'Yêu thích',
-        icon: <FontAwesomeIcon icon={faBookmark} />,
-        to: '/favorite',
+        icon: <Favorite className={cx('icon')} />,
     },
     {
         title: 'Nhận xu',
-        icon: <FontAwesomeIcon icon={faBitcoinSign} />,
-        to: '/coin',
+        icon: <Coin className={cx('icon')} />,
     },
     {
         title: 'Xem phân tích',
-        icon: <FontAwesomeIcon icon={faChartLine} />,
-        to: '/analysis',
+        icon: <Analysis className={cx('icon')} />,
     },
     {
         title: 'LIVE Studio',
-        icon: <FontAwesomeIcon icon={faVideo} />,
-        to: '/live',
+        icon: <Camera className={cx('icon')} />,
     },
     {
         title: 'Trung tâm LIVE',
-        icon: <FontAwesomeIcon icon={faHouse} />,
-        to: '/livecenter',
+        icon: <Home className={cx('icon')} />,
     },
     {
         title: 'Cài đặt',
-        icon: <FontAwesomeIcon icon={faGear} />,
-        to: '/settings',
+        icon: <Setting className={cx('icon')} />,
     },
-    ...menuItem,
+    ...menuItems,
     {
         title: 'Đăng xuất',
-        icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
-        to: '/logout',
-        border_top: true,
+        icon: <Logout className={cx('icon')} />,
+        border: true,
     },
 ];
 
 function Header() {
     return (
         <header className={cx('wrapper')}>
-            <div className={cx('inner')}>
-                <div>
-                    <img src={images.logo.default} alt="TikTok" />
-                </div>
-
-                <HeadlessTippy
-                    interactive
-                    appendTo={() => document.body}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrap>
-                                <h4 className={cx('heading')}>Accounts</h4>
-                                <div className={cx('result-title')}>
-                                    <AccountItem />
-                                </div>
-                            </PopperWrap>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input placeholder="Search user accounts" />
-                        <button className={cx('clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        <FontAwesomeIcon className={cx('spinner')} icon={faSpinner} />
-                        <button className={cx('search-btn')}>
-                            <FontAwesomeIcon className={cx('search-icon')} icon={faMagnifyingGlass} />
-                        </button>
+            <img src={images.logo.default} alt="logo" />
+            <HeadlessTippy
+                interactive
+                appendTo={() => document.body}
+                render={(attrs) => (
+                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                        <PopperWrap>
+                            <h4 className={cx('result-heading')}>Accounts</h4>
+                            <div className={cx('result-container')}>
+                                <AccountItem />
+                            </div>
+                        </PopperWrap>
                     </div>
-                </HeadlessTippy>
-
-                <div className={cx('action')}>
-                    <Button outline leftIcon={<FontAwesomeIcon icon={faPlus} />}>
-                        Tải lên
-                    </Button>
-                    {userLogin ? (
-                        <Fragment>
-                            <Tippy content="Tin nhắn">
-                                <button className={cx('btn-icon')}>
-                                    <FontAwesomeIcon className={cx('icon')} icon={faPaperPlane} />
-                                </button>
-                            </Tippy>
-                            <Tippy content="Hộp thư">
-                                <button className={cx('btn-icon')}>
-                                    <FontAwesomeIcon className={cx('icon')} icon={faMessage} />
-                                </button>
-                            </Tippy>
-                        </Fragment>
-                    ) : (
-                        <Button primary>Đăng nhập</Button>
-                    )}
-
-                    <Menu data={userLogin ? menuUser : menuItem}>
-                        {userLogin ? (
-                            <img
-                                className={cx('user-avatar')}
-                                src="https://haycafe.vn/wp-content/uploads/2022/10/Hinh-anh-gai-xinh-Viet-Nam-cuoi-tuoi-tan.jpg"
-                                alt="avatar"
-                            />
-                        ) : (
-                            <button className={cx('more-btn')}>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
-                            </button>
-                        )}
-                    </Menu>
+                )}
+            >
+                <div className={cx('seach-wrapper')}>
+                    <input placeholder="Tìm kiếm" />
+                    <button className={cx('clean')}>
+                        <Clean />
+                        <FontAwesomeIcon className={cx('spinner-icon')} icon={faSpinner} />
+                    </button>
+                    <button className={cx('search-btn')}>
+                        <Search className={cx('search-icon')} />
+                    </button>
                 </div>
+            </HeadlessTippy>
+
+            <div className={cx('actions')}>
+                <Button outline leftIcon={<Add className={cx('add-icon')} />}>
+                    Tải lên
+                </Button>
+
+                {login ? (
+                    <>
+                        <Tippy content="Tin nhắn">
+                            <button className={cx('btn-actions')}>
+                                <Message className={cx('message-icon')} />
+                            </button>
+                        </Tippy>
+
+                        <Tippy content="Hộp thư">
+                            <button className={cx('btn-actions')}>
+                                <Notication />
+                            </button>
+                        </Tippy>
+                    </>
+                ) : (
+                    <Button primary>Đăng nhập</Button>
+                )}
+
+                <Menu data={login ? userLogin : menuItems}>
+                    {login ? (
+                        <img
+                            className={cx('avatar')}
+                            src="https://wellavn.com//uploads/2022/08/31/images/gai-xinh-tren-ip.jpg"
+                            alt="avatar"
+                        />
+                    ) : (
+                        <button>
+                            <MoreMenu className={cx('more-menu-icon')} />
+                        </button>
+                    )}
+                </Menu>
             </div>
         </header>
     );

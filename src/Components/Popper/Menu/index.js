@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind';
-import styles from './Menu.module.scss';
-import Tippy from '@tippyjs/react/headless';
+import HeadlessTippy from '@tippyjs/react/headless';
 import { useState } from 'react';
 
-import { Wrapper as MenuWrap } from '../index';
+import styles from './Menu.module.scss';
+import { Wrapper as PopperWrap } from '../index';
 import MenuItem from './MenuItem';
-import MenuHeader from './MenuHeader';
+import Header from './Header';
 
 const cx = classNames.bind(styles);
 
@@ -13,53 +13,50 @@ function Menu({ children, data }) {
     const [history, setHistory] = useState([{ data: data }]);
 
     const current = history[history.length - 1];
+
     return (
-        <Tippy
-        visible
-            appendTo={() => document.body}
+        <HeadlessTippy
+            onHide={() => {
+                setHistory(prev => prev.slice(0,1));
+            }}
             placement="bottom-end"
             interactive
+            appendTo={() => document.body}
             render={(attrs) => (
-                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <MenuWrap className={cx('menu-wrap')}>
+                <div className={cx('menu-wrap')} tabIndex="-1" {...attrs}>
+                    <PopperWrap className={cx('custom-menu')}>
                         {history.length > 1 && (
-                            <MenuHeader
-                                menuHeaderTitle={current.title}
-                                onBack={() => {
-                                    setHistory((prev) => {
-                                        console.log('prev', prev);
-                                        return prev.slice(0, prev.length - 1);
-                                    });
+                            <Header
+                                onClick={() => {
+                                    setHistory((prev) => prev.slice(0, prev.length - 1));
                                 }}
+                                data={current}
                             />
                         )}
-                        {current.data.map((item, index) => {
-                            const isParent = !!item.children;
-                            return (
-                                <MenuItem
-                                    key={index}
-                                    data={item}
-                                    onClick={() => {
-                                        if (isParent) {
-                                            setHistory((prev) => [...prev, item.children]);
-                                        }
-                                    }}
-                                />
-                            );
-                        })}
-                    </MenuWrap>
+                        <div className={cx('menu-container')}>
+                            {current.data.map((item, index) => {
+                                return (
+                                    <MenuItem
+                                        border = {item.border}
+                                        onClick={() => {
+                                            if (item.children) {
+                                                setHistory((prev) => [...prev, item.children]);
+                                            }
+                                        }}
+                                        toggle={item.toggle}
+                                        key={index}
+                                        item={item}
+                                    />
+                                );
+                            })}
+                        </div>
+                    </PopperWrap>
                 </div>
             )}
         >
             {children}
-        </Tippy>
+        </HeadlessTippy>
     );
 }
 
 export default Menu;
-
-// const myArray = [1,2,3,4,5,6]
-
-// console.log(myArray.splice(0, 10 ));
-
-// console.log(myArray);

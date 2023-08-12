@@ -1,23 +1,19 @@
 import classNames from 'classnames/bind';
-import styles from './Menu.module.scss';
-import { Fragment } from 'react';
 
+import styles from './Menu.module.scss';
 import Button from '../../Button';
 
 const cx = classNames.bind(styles);
 
-function MenuItem({ data, onClick }) {
-    const classes = cx('menu-item', {
-        separate: data.border_top,
-    })
-
+function MenuItem({ item, toggle, onClick, border }) {
+    const classes = cx('wrapper', {
+        border,
+    });
     return (
-        <>
-            <Button className={classes} to={data.to} leftIcon={data.icon} onClick={onClick}>
-                {data.title}
-                {data.toggle_switch && <input className={cx('toggle-switch')} type="checkbox" />}
-            </Button>
-        </>
+        <Button onClick={onClick} className={classes} leftIcon={item.icon}>
+            {item.title}
+            {toggle && <input className={cx('toggle')} type="checkbox" />}
+        </Button>
     );
 }
 
