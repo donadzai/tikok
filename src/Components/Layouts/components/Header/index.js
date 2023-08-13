@@ -1,7 +1,4 @@
 import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
@@ -9,8 +6,6 @@ import styles from './Header.module.scss';
 import images from '../../../../assets/images';
 import {
     Add,
-    Clean,
-    Search,
     MoreMenu,
     Language,
     Feedback,
@@ -27,11 +22,10 @@ import {
     Setting,
     Logout,
 } from '../../../Icons';
-import { Wrapper as PopperWrap } from '../../../Popper';
-import AccountItem from '../../../AccountItem';
 import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
 import Image from '../../../Image';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 
@@ -109,31 +103,8 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <img src={images.logo.default} alt="logo" />
-            <HeadlessTippy
-                interactive
-                appendTo={() => document.body}
-                render={(attrs) => (
-                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                        <PopperWrap>
-                            <h4 className={cx('result-heading')}>Accounts</h4>
-                            <div className={cx('result-container')}>
-                                <AccountItem />
-                            </div>
-                        </PopperWrap>
-                    </div>
-                )}
-            >
-                <div className={cx('seach-wrapper')}>
-                    <input placeholder="Tìm kiếm" />
-                    <button className={cx('clean')}>
-                        <Clean />
-                        <FontAwesomeIcon className={cx('spinner-icon')} icon={faSpinner} />
-                    </button>
-                    <button className={cx('search-btn')}>
-                        <Search className={cx('search-icon')} />
-                    </button>
-                </div>
-            </HeadlessTippy>
+            
+            <Search />
 
             <div className={cx('actions')}>
                 <Button outline leftIcon={<Add className={cx('add-icon')} />}>

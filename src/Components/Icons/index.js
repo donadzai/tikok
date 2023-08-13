@@ -1,8 +1,9 @@
 import { forwardRef } from 'react';
 
-export const Clean = ({ width = '1.6rem', height = '1.6rem', color = 'rgba(22, 24, 35, .34)', style }) => {
+export const Clean = ({ width = '1.6rem', height = '1.6rem', color = 'rgba(22, 24, 35, .34)', style, onClean }) => {
     return (
         <svg
+            onClick={onClean}
             width={width}
             data-e2e=""
             height={height}
