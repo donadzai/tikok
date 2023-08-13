@@ -31,6 +31,7 @@ import { Wrapper as PopperWrap } from '../../../Popper';
 import AccountItem from '../../../AccountItem';
 import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
+import Image from '../../../Image';
 
 const cx = classNames.bind(styles);
 
@@ -159,15 +160,14 @@ function Header() {
 
                 <Menu data={login ? userLogin : menuItems}>
                     {login ? (
-                        <img
+                        <Image
                             className={cx('avatar')}
                             src="https://wellavn.com//uploads/2022/08/31/images/gai-xinh-tren-ip.jpg"
                             alt="avatar"
+                            customDefaultImage = 'https://png.pngtree.com/thumb_back/fw800/background/20230518/pngtree-the-beautiful-girl-with-long-red-hair-is-wearing-sunglasses-image_2575108.png'
                         />
                     ) : (
-                        <button>
                             <MoreMenu className={cx('more-menu-icon')} />
-                        </button>
                     )}
                 </Menu>
             </div>
