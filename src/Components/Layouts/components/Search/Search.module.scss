@@ -41,6 +41,14 @@
     margin: 0 10px;
 }
 
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
 
 .spinner-icon {
     position: absolute;
@@ -48,6 +56,7 @@
     top: 50%;
     transform: translateY(-50%);
     color: rgba(22, 24, 35, 0.34);
+    animation: spinner 0.2s linear;
 }
 
 .search-btn {

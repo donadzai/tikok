@@ -2,6 +2,7 @@ import Following from "../Pages/Following";
 import Home from "../Pages/Home";
 import Search from "../Pages/Search";
 import Upload from "../Pages/Upload";
+import Profile from "../Pages/Profile";
 
 import { HeaderOnly } from "../Components/Layouts";
 
@@ -23,6 +24,10 @@ const publicRoutes = [
         path: '/search',
         component: Search,
         layout: null,
+    },
+    {
+        path: '/:nickname',
+        component: Profile,
     },
 ]
 

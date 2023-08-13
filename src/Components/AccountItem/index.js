@@ -1,23 +1,29 @@
-import classNames from "classnames/bind";
+import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 
-import styles from './AccountItem.module.scss'
-import { Check } from "../Icons";
+import styles from './AccountItem.module.scss';
+import { Check } from '../Icons';
+import Image from '../Image'
 
 const cx = classNames.bind(styles);
 
-function AccountItem() {
-    return <div className={cx('wrapper')}>
-        <img className={cx('avatar')} src="https://phunugioi.com/wp-content/uploads/2020/04/hot-girl-truong-hoc-deo-kinh.jpg" alt="avatar"/>
-        <div className={cx('info')}>
-            <div className={cx('user-name-wrap')}>
-                <h4 className={cx('user-name')}>Kiều Duy Đoàn</h4>
-                <span>
-                    <Check />
-                </span>
+function AccountItem({ data, onClick }) {
+    return (
+        <Link onClick={onClick} to={`/@${data.nickname}`} className={cx('wrapper')}>
+            <Image className={cx('avatar')} src={data.avatar} alt="avatar" />
+            <div className={cx('info')}>
+                <div className={cx('user-name-wrap')}>
+                    <h4 className={cx('user-name')}>{data.full_name || 'Kiều Duy Đoàn'}</h4>
+                    {data.tick && (
+                        <span>
+                            <Check />
+                        </span>
+                    )}
+                </div>
+                <p className={cx('user-nickname')}>{data.nickname}</p>
             </div>
-            <p className={cx('user-nickname')}>Chickenxz21@</p>
-        </div>
-    </div>
+        </Link>
+    );
 }
 
 export default AccountItem;

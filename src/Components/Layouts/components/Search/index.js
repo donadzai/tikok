@@ -15,11 +15,24 @@ function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const [showResult, setShowResult] = useState(true);
+    const [showSpinner, setShowSpinner] = useState(false);
     const inputRef = useRef();
 
     useEffect(() => {
-        setSearchResult([1, 2, 3, 4]);
-    }, []);
+        if(!searchValue.trim()) {
+            setSearchResult([]);
+            return;
+        }
+
+        setShowSpinner(true)
+
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+        .then(res => res.json())
+        .then(res => {
+            setSearchResult(res.data);
+            setShowSpinner(false)
+        })
+    }, [searchValue]);
 
     return (
         <HeadlessTippy
@@ -32,7 +45,14 @@ function Search() {
                     <PopperWrap>
                         <h4 className={cx('result-heading')}>Accounts</h4>
                         <div className={cx('result-container')}>
-                            <AccountItem />
+                            {
+                                searchResult.map(result => {
+                                    return <AccountItem onClick = {() => {
+                                        setSearchResult([]);
+                                        setSearchValue('')
+                                    }} data = {result}/>
+                                })
+                            }
                         </div>
                     </PopperWrap>
                 </div>
@@ -50,7 +70,7 @@ function Search() {
                     onFocus={() => setShowResult(true)}
                 />
                 <button className={cx('clean')}>
-                    {searchValue && (
+                    {searchValue && !showSpinner &&(
                         <Clean
                             onClean={() => {
                                 setSearchValue('');
@@ -59,7 +79,7 @@ function Search() {
                             }}
                         />
                     )}
-                    {/* <FontAwesomeIcon className={cx('spinner-icon')} icon={faSpinner} /> */}
+                    {showSpinner && <FontAwesomeIcon className={cx('spinner-icon')} icon={faSpinner} />}
                 </button>
                 <button className={cx('search-btn')}>
                     <SearchIcon className={cx('search-icon')} />
