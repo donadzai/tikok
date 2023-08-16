@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import images from '../../../../assets/images';
@@ -102,8 +103,10 @@ const userLogin = [
 function Header() {
     return (
         <header className={cx('wrapper')}>
-            <img src={images.logo.default} alt="logo" />
-            
+            <Link className={cx('logo')} to={'/'}>
+                <img src={images.logo.default} alt="logo" />
+            </Link>
+
             <Search />
 
             <div className={cx('actions')}>
@@ -135,10 +138,10 @@ function Header() {
                             className={cx('avatar')}
                             src="https://wellavn.com//uploads/2022/08/31/images/gai-xinh-tren-ip.jpg"
                             alt="avatar"
-                            customDefaultImage = 'https://png.pngtree.com/thumb_back/fw800/background/20230518/pngtree-the-beautiful-girl-with-long-red-hair-is-wearing-sunglasses-image_2575108.png'
+                            customDefaultImage="https://png.pngtree.com/thumb_back/fw800/background/20230518/pngtree-the-beautiful-girl-with-long-red-hair-is-wearing-sunglasses-image_2575108.png"
                         />
                     ) : (
-                            <MoreMenu className={cx('more-menu-icon')} />
+                        <MoreMenu className={cx('more-menu-icon')} />
                     )}
                 </Menu>
             </div>

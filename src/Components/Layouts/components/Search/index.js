@@ -8,6 +8,7 @@ import styles from './Search.module.scss';
 import { Wrapper as PopperWrap } from '../../../Popper';
 import AccountItem from '../../../AccountItem';
 import { Clean, Search as SearchIcon } from '../../../Icons';
+import useDebounce from '../../../../hooks/useDebounce';
 
 const cx = classNames.bind(styles);
 
@@ -17,22 +18,23 @@ function Search() {
     const [showResult, setShowResult] = useState(true);
     const [showSpinner, setShowSpinner] = useState(false);
     const inputRef = useRef();
+    const debounce = useDebounce(searchValue, 500)
 
     useEffect(() => {
-        if(!searchValue.trim()) {
+        if (!debounce.trim()) {
             setSearchResult([]);
             return;
         }
 
-        setShowSpinner(true)
+        setShowSpinner(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
-        .then(res => res.json())
-        .then(res => {
-            setSearchResult(res.data);
-            setShowSpinner(false)
-        })
-    }, [searchValue]);
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
+            .then((res) => res.json())
+            .then((res) => {
+                setSearchResult(res.data);
+                setShowSpinner(false);
+            });
+    }, [debounce]);
 
     return (
         <HeadlessTippy
@@ -45,14 +47,18 @@ function Search() {
                     <PopperWrap>
                         <h4 className={cx('result-heading')}>Accounts</h4>
                         <div className={cx('result-container')}>
-                            {
-                                searchResult.map(result => {
-                                    return <AccountItem onClick = {() => {
-                                        setSearchResult([]);
-                                        setSearchValue('')
-                                    }} data = {result}/>
-                                })
-                            }
+                            {searchResult.map((result) => {
+                                return (
+                                    <AccountItem
+                                        key={result.id}
+                                        onClick={() => {
+                                            setSearchResult([]);
+                                            setSearchValue('');
+                                        }}
+                                        data={result}
+                                    />
+                                );
+                            })}
                         </div>
                     </PopperWrap>
                 </div>
@@ -70,7 +76,7 @@ function Search() {
                     onFocus={() => setShowResult(true)}
                 />
                 <button className={cx('clean')}>
-                    {searchValue && !showSpinner &&(
+                    {searchValue && !showSpinner && (
                         <Clean
                             onClean={() => {
                                 setSearchValue('');

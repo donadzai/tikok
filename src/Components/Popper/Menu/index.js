@@ -17,7 +17,7 @@ function Menu({ children, data }) {
     return (
         <HeadlessTippy
             onHide={() => {
-                setHistory(prev => prev.slice(0,1));
+                setHistory((prev) => prev.slice(0, 1));
             }}
             placement="bottom-end"
             interactive
@@ -37,7 +37,7 @@ function Menu({ children, data }) {
                             {current.data.map((item, index) => {
                                 return (
                                     <MenuItem
-                                        border = {item.border}
+                                        border={item.border}
                                         onClick={() => {
                                             if (item.children) {
                                                 setHistory((prev) => [...prev, item.children]);
