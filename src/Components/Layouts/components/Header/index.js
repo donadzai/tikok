@@ -27,6 +27,7 @@ import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
 import Image from '../../../Image';
 import Search from '../Search';
+import routes from '../../../../config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -103,7 +104,7 @@ const userLogin = [
 function Header() {
     return (
         <header className={cx('wrapper')}>
-            <Link className={cx('logo')} to={'/'}>
+            <Link className={cx('logo')} to={routes.home}>
                 <img src={images.logo.default} alt="logo" />
             </Link>
 
