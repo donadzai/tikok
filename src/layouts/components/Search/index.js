@@ -4,12 +4,12 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useEffect, useRef, useState } from 'react';
 
-import * as searchServices from '../../../../apiServices/searchServices';
+import * as searchServices from '../../../services/searchService';
 import styles from './Search.module.scss';
-import { Wrapper as PopperWrap } from '../../../Popper';
-import AccountItem from '../../../AccountItem';
-import { Clean, Search as SearchIcon } from '../../../Icons';
-import useDebounce from '../../../../hooks/useDebounce';
+import { Wrapper as PopperWrap } from '../../../Components/Popper';
+import AccountItem from '../../../Components/AccountItem';
+import { Clean, Search as SearchIcon } from '../../../Components/Icons';
+import useDebounce from '../../../hooks/useDebounce';
 const cx = classNames.bind(styles);
 
 function Search() {

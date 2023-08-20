@@ -4,7 +4,7 @@ import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
-import images from '../../../../assets/images';
+import images from '../../../assets/images';
 import {
     Add,
     MoreMenu,
@@ -22,12 +22,12 @@ import {
     Home,
     Setting,
     Logout,
-} from '../../../Icons';
-import Button from '../../../Button';
-import Menu from '../../../Popper/Menu';
-import Image from '../../../Image';
+} from '../../../Components/Icons';
+import Button from '../../../Components/Button';
+import Menu from '../../../Components/Popper/Menu';
+import Image from '../../../Components/Image';
 import Search from '../Search';
-import routes from '../../../../config/routes';
+import config from '../../../config';
 
 const cx = classNames.bind(styles);
 
@@ -104,7 +104,7 @@ const userLogin = [
 function Header() {
     return (
         <header className={cx('wrapper')}>
-            <Link className={cx('logo')} to={routes.home}>
+            <Link className={cx('logo')} to={config.routes.home}>
                 <img src={images.logo.default} alt="logo" />
             </Link>
 
