@@ -16,6 +16,7 @@ function Menu({ children, data }) {
 
     return (
         <HeadlessTippy
+            hideOnClick = {false}
             onHide={() => {
                 setHistory((prev) => prev.slice(0, 1));
             }}

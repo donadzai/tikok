@@ -38,6 +38,15 @@ function Search() {
         fetchApi();
     }, [debounce]);
 
+    const handleInput = (e) => {
+        const searchValue = e.target.value;
+        if(searchValue.startsWith(' ')) {
+            return;
+        }
+        setSearchValue(searchValue);
+        setShowResult(true);
+    };
+
     return (
         <HeadlessTippy
             onClickOutside={() => setShowResult(false)}
@@ -71,10 +80,7 @@ function Search() {
                     ref={inputRef}
                     placeholder="Tìm kiếm"
                     value={searchValue}
-                    onChange={(e) => {
-                        setSearchValue(e.target.value);
-                        setShowResult(true);
-                    }}
+                    onChange={handleInput}
                     onFocus={() => setShowResult(true)}
                 />
                 <button className={cx('clean')}>
