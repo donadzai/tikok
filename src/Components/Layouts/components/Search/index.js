@@ -4,12 +4,12 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useEffect, useRef, useState } from 'react';
 
+import * as searchServices from '../../../../apiServices/searchServices';
 import styles from './Search.module.scss';
 import { Wrapper as PopperWrap } from '../../../Popper';
 import AccountItem from '../../../AccountItem';
 import { Clean, Search as SearchIcon } from '../../../Icons';
 import useDebounce from '../../../../hooks/useDebounce';
-
 const cx = classNames.bind(styles);
 
 function Search() {
@@ -18,7 +18,7 @@ function Search() {
     const [showResult, setShowResult] = useState(true);
     const [showSpinner, setShowSpinner] = useState(false);
     const inputRef = useRef();
-    const debounce = useDebounce(searchValue, 500)
+    const debounce = useDebounce(searchValue, 500);
 
     useEffect(() => {
         if (!debounce.trim()) {
@@ -28,12 +28,14 @@ function Search() {
 
         setShowSpinner(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setShowSpinner(false);
-            });
+        const fetchApi = async () => {
+            setShowSpinner(true);
+            const result = await searchServices.search(debounce, 'less');
+            setSearchResult(result);
+            setShowSpinner(false);
+        };
+
+        fetchApi();
     }, [debounce]);
 
     return (
