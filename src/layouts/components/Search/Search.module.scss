@@ -1,5 +1,6 @@
 //search
 .seach-wrapper {
+    position: relative;
     display: flex;
     align-items: center;
     width: 500px;
@@ -17,6 +18,7 @@
         color: rgb(22, 24, 35);
         caret-color: rgb(254, 44, 85);
         appearance: textfield;
+        margin-right: 40px;
     }
 
     &:hover {
@@ -36,11 +38,6 @@
     }
 }
 
-.clean {
-    position: relative;
-    margin: 0 10px;
-}
-
 @keyframes spinner {
     from {
         transform: translateY(-50%) rotate(0);
@@ -51,12 +48,15 @@
 }
 
 .spinner-icon {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
     color: rgba(22, 24, 35, 0.34);
     animation: spinner 0.2s linear;
+}
+
+.spinner-icon, .clean {
+    position: absolute;
+    right: 66px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .search-btn {

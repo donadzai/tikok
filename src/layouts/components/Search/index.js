@@ -40,7 +40,7 @@ function Search() {
 
     const handleInput = (e) => {
         const searchValue = e.target.value;
-        if(searchValue.startsWith(' ')) {
+        if (searchValue.startsWith(' ')) {
             return;
         }
         setSearchValue(searchValue);
@@ -93,8 +93,8 @@ function Search() {
                             }}
                         />
                     )}
-                    {showSpinner && <FontAwesomeIcon className={cx('spinner-icon')} icon={faSpinner} />}
                 </button>
+                {showSpinner && <FontAwesomeIcon className={cx('spinner-icon')} icon={faSpinner} />}
                 <button className={cx('search-btn')}>
                     <SearchIcon className={cx('search-icon')} />
                 </button>

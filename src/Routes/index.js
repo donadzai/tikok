@@ -5,6 +5,7 @@ import Home from "../Pages/Home";
 import Search from "../Pages/Search";
 import Upload from "../Pages/Upload";
 import Profile from "../Pages/Profile";
+import Live from "../Pages/Live";
 
 import { HeaderOnly } from "../layouts";
 
@@ -16,6 +17,10 @@ const publicRoutes = [
     {
         path:config.routes.following,
         component: Following,
+    },
+    {
+        path:config.routes.live,
+        component: Live,
     },
     {
         path:config.routes.upload,
