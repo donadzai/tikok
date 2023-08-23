@@ -1,0 +1,77 @@
+//Account suggest
+.wrapper {
+    border-top: 1px solid rgba(22, 24, 35, .12);
+    padding: 16px 0;
+}
+
+.header {
+    padding: 0 8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    letter-spacing: 0.093px;
+    color: rgba(22, 24, 35, .75);
+}
+
+//Account suggest item
+.account-preview {
+    width: 300px;
+}
+
+.account-item {
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.account-body {
+    flex: 1;
+    margin-left: 12px;
+    overflow: hidden;
+}
+
+.name-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    display: inline-block;
+    max-width: 145px;
+    margin-right: 10px;
+    color: rgb(22, 24, 35);
+    font-weight: 700;
+    line-height: 2.1rem;
+    letter-spacing: 0.03px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.nickname {
+    display: block;
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 0.161px;
+    line-height: 1.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

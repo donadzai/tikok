@@ -1,0 +1,47 @@
+.wrapper {
+    padding: 20px;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.account-body {
+    margin-bottom: 20px;
+}
+
+.name {
+    display: inline-block;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.nickname {
+    display: block;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.value {
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.value ~ .value {
+    margin-left: 20px;
+}

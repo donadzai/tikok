@@ -11,6 +11,7 @@ import {
     LiveActiveIcon,
 } from '../../../Components/Icons';
 import config from '../../../config';
+import SuggestAccounts from '../../../Components/SuggestAccounts';
 
 const cx = classNames.bind(styles);
 
@@ -47,6 +48,8 @@ function Sidebar() {
                     })
                 }
             </Menu>
+            <SuggestAccounts lable='Có thể bạn quan tâm'/>
+            <SuggestAccounts lable='Các tài khoản đang follow'/>
         </aside>
     );
 }
